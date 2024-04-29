@@ -31,8 +31,8 @@ const UserMenu = ({ currentUser }: { currentUser: SafeUser }) => {
     rentModal.onOpen();
   }, [currentUser, rentModal, loginModal]);
 
-  const onSignOut = () => {
-    signOut();
+  const onSignOut = async () => {
+    await signOut();
     router.push("/");
   };
 

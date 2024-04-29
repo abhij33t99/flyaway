@@ -4,7 +4,12 @@ import authConfig from "@/auth.config";
 const { auth } = NextAuth(authConfig);
 
 export default auth((req) => {
-  return;
+  const { nextUrl } = req;
+  const isLoggedIn = !!req.auth;
+
+  if ("/" === nextUrl.pathname || nextUrl.pathname.startsWith("/api")) return;
+
+  return Response.redirect(new URL("/", nextUrl));
 });
 
 // Optionally, don't invoke Middleware on some paths
