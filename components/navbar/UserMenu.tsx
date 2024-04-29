@@ -31,11 +31,6 @@ const UserMenu = ({ currentUser }: { currentUser: SafeUser }) => {
     rentModal.onOpen();
   }, [currentUser, rentModal, loginModal]);
 
-  const onSignOut = async () => {
-    await signOut();
-    router.push("/");
-  };
-
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
@@ -79,7 +74,10 @@ const UserMenu = ({ currentUser }: { currentUser: SafeUser }) => {
                 />
                 <MenuItem onClick={rentModal.onOpen} label="Flyaway my home" />
                 <hr />
-                <MenuItem onClick={onSignOut} label="Logout" />
+                <MenuItem
+                  onClick={() => signOut({ callbackUrl: "/", redirect: true })}
+                  label="Logout"
+                />
               </>
             ) : (
               <>
