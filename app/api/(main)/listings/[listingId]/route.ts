@@ -1,7 +1,6 @@
 import { currentUser } from "@/lib/auth";
 import db from "@/lib/db";
 import { NextResponse } from "next/server";
-import { string } from "zod";
 
 interface IParams {
   listingId?: string;

@@ -28,7 +28,6 @@ export default async function Home({ searchParams }: HomeProps) {
         <div
           className="
           pt-24
-          px-10
           grid
           grid-cols-1 
           sm:grid-cols-2
