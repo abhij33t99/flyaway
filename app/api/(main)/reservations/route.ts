@@ -31,5 +31,5 @@ export const POST = async (req: Request) => {
     },
   });
 
-  return listingAndReservations;
+  return NextResponse.json(listingAndReservations);
 };
